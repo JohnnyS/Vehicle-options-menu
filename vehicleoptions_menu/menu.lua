@@ -8,6 +8,7 @@
 
 
 -- default keybind is F3, to choose a different one get the ID you want from https://docs.fivem.net/docs/game-references/controls/
+-- To disable the keybind set it to 360
 local keybind = 170
 local command = "carmenu" -- if you ever want to change the command
 
