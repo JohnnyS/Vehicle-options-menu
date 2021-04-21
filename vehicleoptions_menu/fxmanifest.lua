@@ -1,5 +1,5 @@
 -----------------------------------------------------------
-----           Vehicle Options menu                    ----
+----             Vehicle Options menu                  ----
 ----             Made by Tamir112#5345                 ----
 ----        For more scripts and updates Join:         ----
 ----              discord.gg/bDPaRDeBKJ                ----
