@@ -15,7 +15,7 @@ local command = "carmenu" -- if you ever want to change the command
 
 -- Adding this for job check
 
-ESX               				= nil
+ESX               	= nil
 local PlayerData        = {}
 local Job 		= 'mechanic'
 local Jobgrade          = 'boss'
