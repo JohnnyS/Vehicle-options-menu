@@ -9,8 +9,37 @@
 
 -- default keybind is F3, to choose a different one get the ID you want from https://docs.fivem.net/docs/game-references/controls/
 -- To disable the keybind set it to 360
-local keybind = 170
+local keybind = 360
 local command = "carmenu" -- if you ever want to change the command
+
+
+-- Adding this for job check
+
+ESX               				= nil
+local PlayerData                = {}
+local Job 				= 'mechanic'
+local Jobgrade         = 'boss'
+
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+
+	PlayerData = ESX.GetPlayerData()
+end)
+
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer)
+	PlayerData = xPlayer
+end)
+
+RegisterNetEvent('esx:setJob')
+AddEventHandler('esx:setJob', function(job)
+	PlayerData.job = job
+end)
+
+
 
 
 
@@ -411,20 +440,20 @@ RegisterCommand(command, function()
   _menuPool:MouseEdgeEnabled (false)
   _menuPool:ControlDisablingEnabled(false)
   _menuPool:ProcessMenus()
-  if IsPedInAnyVehicle(GetPlayerPed(-1), false) then
+  if IsPedInAnyVehicle(GetPlayerPed(-1), false) and PlayerData.job.name == Job and PlayerData.job.grade_name == 'boss' then
     mainMenu:Clear()
-    doors(mainMenu)
-    windows(mainMenu)
+    --doors(mainMenu)
+  --windows(mainMenu)
     liverys(mainMenu)
     Extras(mainMenu)
-    licenses(mainMenu)
-seatrs(mainMenu)
+    --licenses(mainMenu)
+    --seatrs(mainMenu)
 
       mainMenu:Visible(not mainMenu:Visible())
      
   
 else 
-  ShowNotification("~r~You need to be in a vehicle to use this menu")
+  ShowNotification("~r~You need to be in a vehicle to use this menu or you do not have permission to do this")
 end
 end
 )
