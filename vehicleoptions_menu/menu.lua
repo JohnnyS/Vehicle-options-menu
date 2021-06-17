@@ -16,9 +16,9 @@ local command = "carmenu" -- if you ever want to change the command
 -- Adding this for job check
 
 ESX               				= nil
-local PlayerData                = {}
-local Job 				= 'mechanic'
-local Jobgrade         = 'boss'
+local PlayerData        = {}
+local Job 		= 'mechanic'
+local Jobgrade          = 'boss'
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -443,7 +443,7 @@ RegisterCommand(command, function()
   if IsPedInAnyVehicle(GetPlayerPed(-1), false) and PlayerData.job.name == Job and PlayerData.job.grade_name == 'boss' then
     mainMenu:Clear()
     --doors(mainMenu)
-  --windows(mainMenu)
+    --windows(mainMenu)
     liverys(mainMenu)
     Extras(mainMenu)
     --licenses(mainMenu)
@@ -469,7 +469,3 @@ end
     AddTextComponentString(text)
     DrawNotification(false, false)
 end
-
-
-
-
